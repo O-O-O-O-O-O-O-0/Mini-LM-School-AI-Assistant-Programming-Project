@@ -1,0 +1,12 @@
+gradio
+Git-LFS
+requests
+pandas
+torch
+datasets
+sentence_transformers.util
+bs4
+datetime
+pytz
+json
+re
