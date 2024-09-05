@@ -1,7 +1,7 @@
-# Specify the directory path to where your files are stored
-file_name = '/Users/sriharithirumaligai/Downloads/project1-main/ListOfFiles/output-'
+# Specify the directory path to where your files are stored, end in output-
+file_name = #EX: '/Users/sriharithirumaligai/Downloads/project1-main/ListOfFiles/output-'
 # Specify the directory path to where your combined output will be stored
-combined_file_path = '/Users/sriharithirumaligai/Downloads/project1-main/CombinedFilesOutput2.txt'
+combined_file_path = #EX: '/Users/sriharithirumaligai/Downloads/project1-main/CombinedFilesOutput2.txt'
 
 # Open the combined file in write mode to clear it
 with open(combined_file_path, 'w', encoding='utf-8') as combined_file:
