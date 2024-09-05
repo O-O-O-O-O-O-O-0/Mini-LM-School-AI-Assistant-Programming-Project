@@ -3,18 +3,6 @@ from bs4 import BeautifulSoup
 import json
 import re
 
-# Function to check if the paragraph contains an email address and keeps only one copy
-# This is really a relic, but it's kept just in case for the future
-def contains_email(text, seen_emails):
-    email_pattern = r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-    matches = re.findall(email_pattern, text)
-    for match in matches:
-        if match not in seen_emails:
-            seen_emails.add(match)
-        else:
-            text = text.replace(match, '')
-    return text, seen_emails
-
 seen_emails = set()
 unique_data = []
 
@@ -120,7 +108,8 @@ urls = ["https://miraloma.sanjuan.edu/",
 
 count = 1
 for url in urls:
-    fileName = '/Users/sriharithirumaligai/Downloads/project1-main/ListOfFiles/output-'
+    # Insert correct file name, the output- format makes it simpler
+    fileName = #EX: '/Users/sriharithirumaligai/Downloads/project1-main/ListOfFiles/output-'
     fileName += str(count)
     # send a GET request to the URL
     response = requests.get(url)
@@ -139,6 +128,7 @@ for url in urls:
     paragraphs = soup.find_all('p')
     notFound = True
     # Just getting rid of repetitive, unimportant stuff in the HTML that shows on every page unnecessarily
+    # This is for Mira Loma, but it can be changed depending on the school website
     repetitiveStuff = ["Non-Discrimination Statement:The San Juan Unified School District Board of Education is committed to equal opportunity for all individuals in district programs and activities. District programs, activities and services shall be free from unlawful discrimination, harassment (including sexual harassment), intimidation, and/or bullying based on actual or perceived characteristics of race or ethnicity, color, ancestry, nationality, national origin, immigration status, ethnic group identification, age, religion, marital or parental status, pregnancy, physical or mental disability, sex, sexual orientation, gender, gender identity, gender expression, genetic information, affiliation with the Boy Scouts of America, or on the basis of a person's association with a person or group with one or more of these actual or perceived characteristics. If you believe you have experienced unlawful discrimination, please contact: Equity Compliance Officer, Fhanysha C. Gaddis, (916) 971-7110, LegalServices@sanjuan.edu; Title IX Coordinator, Katie Fabel, (916) 971-7110, TitleIX@sanjuan.edu; Section 504 Coordinator, Dominic Covello, (916) 971-7220; ADA/Title II Coordinator, Michelle Fischer, (916) 971-7036", "TitleIX@sanjuan.edu","LegalServices@sanjuan.edu", "Charles Peck Elementary School is currently in a precautionary shelter-in-place due to an unknown person on campus. Law enforcement has been notified. Please do not go to the campus at this time. An update will be provided as soon as it is available."]
     for paragraph in paragraphs:
         for string in repetitiveStuff:
