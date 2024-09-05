@@ -44,7 +44,7 @@ if response.status_code == 200:
     # print(timeElements)
     # Change this to wherever you want the calendar info to go. The original calendar page
     # is the 15th URL, which is why I use output-15
-    finalOutput = "/Users/sriharithirumaligai/Downloads/project1-main/ListOfFiles/output-15"
+    finalOutput = # EX: "/Users/sriharithirumaligai/Downloads/project1-main/ListOfFiles/output-15"
     # finalOutput = "ScraperCalendarTest.txt"
     # Create or open a file to write the data
     prev_element = textWithTime[0]
